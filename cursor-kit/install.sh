@@ -21,6 +21,4 @@ for skill_dir in "${ROOT}/skills/"*/; do
   echo "   ✓ ${name}"
 done
 
-echo ""
-echo "Готово. В Cursor: Cmd+Shift+P → Developer: Reload Window"
-echo "Проверка: /fire тестовая задача — агент задаёт один вопрос, не пишет код сразу."
+echo "Готово. Читай SETUP.md в корне репозитория."

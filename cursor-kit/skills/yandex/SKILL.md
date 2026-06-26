@@ -24,9 +24,9 @@ disable-model-invocation: true
 | Вебмастер | `YANDEX_WEBMASTER_OAUTH_TOKEN`, опц. `YANDEX_WEBMASTER_HOST_ID` |
 | Метрика | `YANDEX_METRIKA_OAUTH_TOKEN`, `YANDEX_METRIKA_COUNTER_ID` |
 | Директ | `YANDEX_DIRECT_OAUTH_TOKEN` |
-| Бизнес | `YANDEX_BUSINESS_ORG_ID`, опц. `YANDEX_BUSINESS_CARD_URL` (API ограничен, см. docs/YANDEX_ENV.md) |
+| Бизнес | `YANDEX_BUSINESS_ORG_ID`, опц. `YANDEX_BUSINESS_CARD_URL` — см. `SETUP.md` §8 |
 
-Файлы: `.env`, `.env.local` в корне проекта (если нет — сообщить). Инструкция: `docs/YANDEX_ENV.md`.
+Файлы: `.env`, `.env.local` в корне проекта. Инструкция: `SETUP.md` в корне репозитория (или скопированном kit).
 
 Записать в отчёт секцию **Доступ к API** — какие сервисы `api` / `manual` / `skip`.
 
