@@ -1,4 +1,4 @@
-# Аркестратор
+# Оркестратор
 
 Cursor workflow kit для веб-разработчика + демо-лендинг «СЭР» (Astro).
 
@@ -9,8 +9,8 @@ Cursor workflow kit для веб-разработчика + демо-ленди
 ## Установка в Cursor (3 шага)
 
 ```bash
-git clone https://github.com/Kystof91/arkestrator.git
-cd arkestrator
+git clone https://github.com/Kystof91/orkestrator.git
+cd orkestrator
 ./cursor-kit/install.sh
 ```
 
@@ -81,7 +81,7 @@ pnpm install && pnpm generate:images && pnpm dev
 ## Что внутри репо
 
 ```
-arkestrator/
+orkestrator/
 ├── cursor-kit/          # rules + skills + install.sh → в ~/.cursor
 │   ├── rules/           # agent-workflow, grill-me-gate, review-gate
 │   └── skills/          # fire, yandex, grill-me, verification-loop…
