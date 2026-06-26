@@ -1,3 +1,8 @@
+# dependencies & build (локально могут остаться после тестов)
+node_modules/
+dist/
+.astro/
+
 # environment variables
 .env
 .env.local
@@ -8,3 +13,4 @@
 
 # editors
 .idea/
+.vscode/
