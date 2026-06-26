@@ -21,4 +21,4 @@ for skill_dir in "${ROOT}/skills/"*/; do
   echo "   ✓ ${name}"
 done
 
-echo "Готово. Читай SETUP.md в корне репозитория."
+echo "Готово. Дальше — README.md в корне репозитория."
