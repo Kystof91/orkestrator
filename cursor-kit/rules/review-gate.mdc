@@ -1,0 +1,44 @@
+---
+description: Обязательный review gate — никакого self-review, только subagent
+alwaysApply: true
+---
+
+# Review Gate
+
+## Запрет
+
+- Не писать «проверил сам» / «looks good» в том же проходе, что и код.
+- Не выдавать **финальный отчёт** и не считать задачу готовой без review gate.
+- Не пропускать gate на нетривиальных задачах (>1 файл, UI, auth, forms, API).
+
+## Когда срабатывает gate
+
+После последней фазы реализации (lint/test/build зелёные) — **сразу**, без ожидания просьбы пользователя.
+
+Короткий путь (опечатка, 1 файл): gate не нужен.
+
+## Обязательная последовательность
+
+1. Заполнить `docs/tasks/...md` → статус `awaiting-review`
+2. Прочитать skill `task-review-gate` и выполнить его
+3. Запустить subagent review (bugbot / review-security)
+4. 🔴 блокеры — исправить, review повторить
+5. Записать findings в PRD или `FINAL_REPORT`
+6. Статус PRD → `review-done`
+7. Финальный отчёт пользователю
+8. Статус PRD → `done` (только после отчёта; ручной чеклист в DoD отметить)
+
+Запрещено: финальный отчёт при статусе `in progress` или `awaiting-review`.
+
+## Выбор review
+
+| Условие | Subagent |
+|---------|----------|
+| Обычный код | `bugbot` |
+| Next/TS проект | `bugbot` или skill code-review-nextjs |
+| auth, forms, PII, payments, env | + `review-security` |
+| UI, формы | проверить a11y rule в brief |
+
+## Новый чат (опционально, не вместо subagent)
+
+Для **high-risk** или если subagent пропустил очевидное — предложить пользователю review в **новом чате** на другой модели, приложив `REVIEW_BRIEF.md`.

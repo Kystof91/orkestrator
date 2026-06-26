@@ -1,0 +1,66 @@
+---
+import { site } from '../data/site';
+---
+
+<header class="sticky top-0 z-30 border-b border-border bg-background/90 backdrop-blur-md">
+  <div class="container-site flex items-center justify-between gap-4 py-4">
+    <a href="/" class="group flex items-center gap-2" aria-label={`${site.name} — на главную`}>
+      <span
+        class="flex size-10 items-center justify-center rounded-sm bg-accent font-display text-lg font-bold text-white"
+        aria-hidden="true">С</span
+      >
+      <div class="leading-tight">
+        <span class="block font-display text-xl font-bold uppercase tracking-wider text-foreground group-hover:text-accent transition-colors">{site.name}</span>
+        <span class="hidden text-xs text-muted sm:block">{site.nameLatin}</span>
+      </div>
+    </a>
+
+    <div class="hidden items-center gap-6 lg:flex">
+      <a href={site.phoneHref} class="text-sm font-medium text-foreground hover:text-accent transition-colors">
+        {site.phone}
+      </a>
+      <address class="not-italic text-sm text-muted max-w-[200px] leading-snug">
+        {site.address}
+      </address>
+      <button type="button" class="btn-primary" data-modal-open="modal-callback">
+        Обратный звонок
+      </button>
+    </div>
+
+    <button
+      type="button"
+      class="flex size-11 items-center justify-center rounded-sm border border-border text-foreground lg:hidden"
+      data-menu-toggle
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Открыть меню"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <nav id="mobile-menu" class="mobile-menu" data-mobile-menu hidden aria-label="Мобильное меню">
+    <div class="container-site flex h-full flex-col justify-center gap-8 py-8">
+      <button
+        type="button"
+        class="absolute right-4 top-4 flex size-11 items-center justify-center rounded-sm border border-border"
+        data-menu-close
+        aria-label="Закрыть меню"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <a href={site.phoneHref} class="text-2xl font-semibold text-foreground">{site.phone}</a>
+      <address class="not-italic text-lg text-muted">{site.address}</address>
+      <button type="button" class="btn-primary w-fit" data-modal-open="modal-callback">
+        Обратный звонок
+      </button>
+    </div>
+  </nav>
+</header>

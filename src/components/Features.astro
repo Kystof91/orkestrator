@@ -1,0 +1,40 @@
+---
+import { features, aboutText } from '../data/site';
+
+const icons: Record<string, string> = {
+  dumbbell:
+    'M6.5 6.5h2v11h-2zm9 0h2v11h-2zM4 10h3v4H4zm13 0h3v4h-3zM9 8h6v8H9z',
+  location: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5z',
+  clock: 'M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 11h-2V7h2z',
+};
+---
+
+<section id="features" class="section-padding reveal" aria-labelledby="features-title">
+  <div class="container-site">
+    <div class="grid gap-12 lg:grid-cols-2">
+      <div>
+        <h2 id="features-title" class="section-title">Почему выбирают нас</h2>
+        <p class="mb-6 text-lg leading-relaxed text-muted">{aboutText}</p>
+        <button type="button" class="btn-outline" data-modal-open="modal-application">
+          Узнать больше
+        </button>
+      </div>
+
+      <ul class="grid gap-6 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+        {
+          features.map((feature) => (
+            <li class="rounded-sm border border-border bg-surface p-6 transition-colors duration-300 hover:border-accent/50">
+              <div class="mb-4 flex size-12 items-center justify-center rounded-sm bg-accent/10 text-accent">
+                <svg class="size-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d={icons[feature.icon]} />
+                </svg>
+              </div>
+              <h3 class="mb-2 font-bold uppercase">{feature.title}</h3>
+              <p class="text-sm text-muted">{feature.description}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

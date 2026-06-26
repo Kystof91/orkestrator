@@ -1,0 +1,72 @@
+---
+interface Props {
+  id: string;
+  variant?: 'slide' | 'fade';
+  autoplay?: number;
+  slidesPerView?: number;
+  label: string;
+  showArrows?: boolean;
+  showDots?: boolean;
+}
+
+const {
+  id,
+  variant = 'slide',
+  autoplay = 5000,
+  slidesPerView = 1,
+  label,
+  showArrows = true,
+  showDots = true,
+} = Astro.props;
+---
+
+<section
+  class="carousel"
+  data-carousel
+  data-variant={variant}
+  data-autoplay={autoplay}
+  data-slides-per-view={slidesPerView}
+  aria-roledescription="carousel"
+  aria-label={label}
+>
+  <div class="carousel__viewport">
+    <div class="carousel__track" id={`${id}-track`}>
+      <slot />
+    </div>
+  </div>
+
+  {
+    showArrows && (
+      <>
+        <button
+          type="button"
+          class="carousel__btn carousel__btn--prev"
+          aria-controls={`${id}-track`}
+          aria-label="Предыдущий слайд"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="carousel__btn carousel__btn--next"
+          aria-controls={`${id}-track`}
+          aria-label="Следующий слайд"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+      </>
+    )
+  }
+
+  {
+    showDots && (
+      <div class="carousel__dots" role="tablist" aria-label="Выбор слайда">
+        <slot name="dots" />
+      </div>
+    )
+  }
+</section>

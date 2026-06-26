@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Pricing from '../components/Pricing.astro';
+import Services from '../components/Services.astro';
+import About from '../components/About.astro';
+import Features from '../components/Features.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Gallery from '../components/Gallery.astro';
+import Partners from '../components/Partners.astro';
+import Reviews from '../components/Reviews.astro';
+import Footer from '../components/Footer.astro';
+import Modal from '../components/Modal.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout
+  title={`${site.name} — ${site.tagline}`}
+  description={`${site.tagline} Премиальный фитнес-клуб в Москве. Современное оборудование, профессиональные тренеры, круглосуточный режим.`}
+>
+  <Header />
+  <main id="main-content">
+    <Hero />
+    <Pricing />
+    <Services />
+    <About />
+    <Features />
+    <ContactForm />
+    <Gallery />
+    <Partners />
+    <Reviews />
+  </main>
+  <Footer />
+
+  <Modal id="modal-callback" title="Обратный звонок" />
+  <Modal id="modal-application" title="Оставить заявку" showProduct />
+  <Modal id="modal-order" title="Заказать абонемент" showProduct />
+</BaseLayout>

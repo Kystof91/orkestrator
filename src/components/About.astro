@@ -1,0 +1,27 @@
+---
+import { stats, aboutText } from '../data/site';
+---
+
+<section id="about" class="section-padding bg-surface reveal" aria-labelledby="about-title" data-counters>
+  <div class="container-site">
+    <div class="grid items-center gap-12 lg:grid-cols-2">
+      <div>
+        <h2 id="about-title" class="section-title">О клубе</h2>
+        <p class="text-lg leading-relaxed text-muted">{aboutText}</p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+        {
+          stats.map((stat) => (
+            <div class="text-center sm:text-left xl:text-center">
+              <p class="stat-value" data-count={stat.value} data-suffix={stat.suffix}>
+                0{stat.suffix}
+              </p>
+              <p class="mt-2 text-sm uppercase tracking-wider text-muted">{stat.label}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+{
+  "name": "ser-gym-landing",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "astro check",
+    "generate:images": "node scripts/generate-images.mjs",
+    "download:images": "node scripts/download-images.mjs",
+    "copy:images": "node scripts/copy-images.mjs"
+  },
+  "dependencies": {
+    "astro": "^7.0.3",
+    "sharp": "^0.35.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@tailwindcss/vite": "^4.3.1",
+    "tailwindcss": "^4.3.1",
+    "typescript": "^6.0.3"
+  }
+}

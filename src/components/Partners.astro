@@ -1,0 +1,38 @@
+---
+import Carousel from './Carousel.astro';
+import { partners } from '../data/site';
+---
+
+<section id="partners" class="section-padding bg-surface reveal" aria-labelledby="partners-title">
+  <div class="container-site">
+    <h2 id="partners-title" class="section-title text-center">Наши партнёры</h2>
+    <p class="section-subtitle mx-auto text-center">Работаем с ведущими брендами фитнес-индустрии.</p>
+
+    <Carousel id="partners-carousel" label="Партнёры" autoplay={4000} showArrows={false}>
+      {
+        partners.map((partner, index) => (
+          <div class="carousel__slide px-4" role="group" aria-roledescription="slide" aria-label={`${index + 1} из ${partners.length}`}>
+            <div class="mx-auto flex h-24 max-w-[200px] items-center justify-center rounded-sm border border-border bg-background px-6">
+              <svg viewBox="0 0 160 48" class="h-10 w-full text-muted" role="img" aria-label={partner.name}>
+                <text x="50%" y="55%" text-anchor="middle" fill="currentColor" font-family="Oswald, sans-serif" font-size="18" font-weight="600" letter-spacing="2">
+                  {partner.name.toUpperCase()}
+                </text>
+              </svg>
+            </div>
+          </div>
+        ))
+      }
+      <Fragment slot="dots">
+        {partners.map((_, index) => (
+          <button
+            type="button"
+            class:list={['carousel__dot', index === 0 && 'is-active']}
+            role="tab"
+            aria-selected={index === 0 ? 'true' : 'false'}
+            aria-label={`Слайд ${index + 1}`}
+          />
+        ))}
+      </Fragment>
+    </Carousel>
+  </div>
+</section>
